@@ -57,6 +57,7 @@ loom {
     runs {
         create("fallingTreeClient") {
             client()
+            runDir(project.file("run").canonicalPath)
 
             property("fabric.log.level", "debug")
             vmArg("-XX:+ShowCodeDetailsInExceptionMessages")
@@ -64,6 +65,7 @@ loom {
         }
         create("fallingTreeServer") {
             server()
+            runDir(project.file("run").canonicalPath)
 
             property("fabric.log.level", "info")
             vmArg("-XX:+ShowCodeDetailsInExceptionMessages")
