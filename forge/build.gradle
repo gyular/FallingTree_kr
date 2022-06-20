@@ -8,7 +8,7 @@ minecraft {
     mappings channel: "official", version: "${libs.versions.forgeMappingsVersion.get()}"
     runs {
         client {
-            workingDirectory project.file("run")
+            workingDirectory project.file("run/client")
             property "forge.logging.markers", "REGISTRIES"
             property "forge.logging.console.level", "debug"
             mods {
@@ -19,7 +19,7 @@ minecraft {
         }
 
         server {
-            workingDirectory project.file("run")
+            workingDirectory project.file("run/server")
             property "forge.logging.markers", "REGISTRIES"
             property "forge.logging.console.level", "info"
             mods {
@@ -30,7 +30,7 @@ minecraft {
         }
 
         gameTestServer {
-            workingDirectory project.file("run")
+            workingDirectory project.file("run/test")
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             property 'forge.enabledGameTestNamespaces', 'fallingtree'
@@ -43,7 +43,7 @@ minecraft {
         }
 
         data {
-            workingDirectory project.file("run")
+            workingDirectory project.file("run/data")
             property "forge.logging.markers", "REGISTRIES"
             property "forge.logging.console.level", "debug"
             args '--mod', 'fallingtree', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
